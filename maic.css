@@ -1,0 +1,148 @@
+/* สรุปยอดขายรายวัน */
+.summary-item {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid #3498db;
+    font-size: 14px;
+}
+
+/* ใบเสร็จ */
+.receipt-box {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.receipt-box h3 {
+    margin-top: 0;
+    color: #d39900;
+}
+.receipt-box hr {
+    margin: 10px 0;
+}
+.receipt-box button {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* ตารางประวัติการขาย */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.history-table th,
+.history-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.history-table th {
+    background-color: #ecf0f1;
+}
+/* ประวัติการขาย */
+.sale-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.sale-item h3 {
+    margin-top: 0;
+}
+.sale-item hr {
+    margin: 10px 0;
+}
+
+/* สรุปยอดขายรายวัน */
+.summary-item {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid #3498db;
+}
+
+/* ปุ่มลบ */
+#delete-all-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#delete-all-btn:hover {
+    background-color: #c0392b;
+}
+/* รายการประวัติการขาย */
+.sale-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #3498db;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.sale-item h3 {
+    margin-top: 0;
+}
+.sale-item hr {
+    margin: 10px 0;
+}
+
+/* สรุปยอดขายรายวัน */
+.summary-item {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid #3498db;
+    font-size: 14px;
+}
+.summary-item strong {
+    font-weight: bold;
+}
+
+/* ปุ่มลบ */
+#delete-all-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#delete-all-btn:hover {
+    background-color: #c0392b;
+}
+.summary-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.summary-item {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid #3498db;
+    font-size: 14px;
+}
+
+.total-summary {
+    background: #ecf0f1;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border-left: 4px solid #27ae60;
+}

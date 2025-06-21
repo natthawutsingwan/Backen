@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ใบเสร็จ</title>
+    <link rel="stylesheet" href="maic.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f7f9fc;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            padding: 6px 12px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #219150;
+        }
+        
+    </style>
+</head>
+<body>
+
+<h1>ใบเสร็จย้อนหลัง</h1>
+<div id="receipt-list"></div>
+<script src="script.js"></script>
+<script>
+    window.onload = function () {
+        loadReceipts();
+    };
+</script>
+
+</body>
+</html>

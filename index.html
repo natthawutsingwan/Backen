@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>POS บันทึกและพิมพ์ใบเสร็จ</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">    
+</head>
+<body>
+
+<header>
+    <h1>ระบบขายหน้าร้าน POS</h1>
+    <p>รองรับการบันทึกและพิมพ์ใบเสร็จย้อนหลัง</p>
+</header>
+
+<!-- เมนูแท็บ -->
+<div class="tab-menu">
+    <button class="tab-btn active" onclick="openTab(event, 'main')">ขายสินค้า</button>
+    <button class="tab-btn" onclick="openTab(event, 'sales')">ประวัติการขาย</button>
+    <button class="tab-btn" onclick="openTab(event, 'receipt')">ใบเสร็จ</button>
+</div>
+
+
+
+
+<!-- ส่วนแสดงผลแท็บ -->
+<div class="tab-content" id="main">
+    <!-- สินค้า -->
+    <div class="products">
+        <h2>รายการสินค้า</h2>
+        <div id="product-list"></div>
+    </div>
+
+    <!-- ตะกร้า -->
+    <div class="cart">
+        <h2>ตะกร้าสินค้า</h2>
+        
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>ชื่อสินค้า</th>
+                    <th>จำนวน</th>
+                    <th>ราคา</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="total">รวมทั้งหมด: <span id="total">0</span> บาท</div>
+
+        <!-- ปุ่มรับเงิน -->
+        <label>รับเงินสด:</label><br />
+        <input type="text" id="cash-display" readonly value="0" />
+
+        <!-- ปุ่มเลข -->
+        <div class="cash-buttons">
+            <button onclick="addDigit('1')">1</button>
+            <button onclick="addDigit('2')">2</button>
+            <button onclick="addDigit('3')">3</button>
+            <button onclick="addDigit('4')">4</button>
+            <button onclick="addDigit('5')">5</button>
+            <button onclick="addDigit('6')">6</button>
+            <button onclick="addDigit('7')">7</button>
+            <button onclick="addDigit('8')">8</button>
+            <button onclick="addDigit('9')">9</button>
+            <button onclick="clearCash()">ยกเลิก</button>
+            <button onclick="addDigit('0')">0</button>
+            <button onclick="backspace()">ลบ</button> 
+
+            <button onclick="addDigit('20')" style="margin-top:10px;">20</button>
+            <button onclick="addDigit('50')" style="margin-top:10px;">50</button>
+            <button onclick="addDigit('100')" style="margin-top:10px;">100</button> 
+            <button onclick="addDigit('500')" style="margin-top:10px;">500</button> 
+            <button onclick="addDigit('1000')" style="margin-top:10px;">1000</button> 
+        </div>
+
+        <!-- ชำระเงิน -->
+        <button onclick="checkout()" style="margin-top:15px; width: 100%; height: 50px;">ชำระเงิน</button>
+        <div id="change-result" style="margin-top:10px;"></div>
+    </div>
+</div>
+
+<!-- แท็บประวัติการขาย -->
+<div class="tab-content" id="sales" style="display:none;">
+    <h2>ประวัติการขาย</h2>
+    <div id="daily-summary" style="margin-bottom: 20px;"></div>
+    <table class="history-table">
+        <thead>
+            <tr>
+                <th>เวลา</th>
+                <th>ยอดรวม</th>
+                <th>รับเงิน</th>
+                <th>เงินทอน</th>
+                <th>ดำเนินการ</th>
+            </tr>
+        </thead>
+        <tbody id="history-body"></tbody>
+    </table>
+</div>
+
+<!-- แท็บใบเสร็จ -->
+<div class="tab-content" id="receipt" style="display:none;">
+    <h2>ใบเสร็จ</h2>
+    <div id="receipt-list"></div>
+</div>
+
+<!-- ป็อปอัปกลางจอ -->
+<div class="popup" id="success-popup">
+    <div style="text-align:center;">
+        <h3>ขอบคุณที่ใช้บริการ</h3>
+        <p id="popup-total">ยอดรวม: 0 บาท</p>
+        <p id="popup-received">รับเงิน: 0 บาท</p>
+        <h2 id="popup-change">เงินทอน: 0 บาท</h2>
+        <button onclick="closePopup()">ตกลง</button>
+    </div>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+    const tabs = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+    }
+    const tabBtns = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.classList.add("active");
+}
+
+window.onload = () => {
+    loadProducts();
+    loadSalesHistoryOnIndex();
+    loadFullSalesHistory(true);
+    loadReceipts();
+    openTab({ currentTarget: document.querySelector(".tab-btn.active") }, "main");
+};
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- เชื่อมต่อ ไฟล์ .JS -->
+<script src="script.js"></script>
+
+
+
+</body>
+</html>

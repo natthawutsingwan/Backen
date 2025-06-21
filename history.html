@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <title>ประวัติการขาย</title>
+    <link rel="stylesheet" href="maic.css">
+</head>
+<body>
+
+<h1>ประวัติการขาย</h1>
+
+<!-- สรุปยอดขายรายวันและทั้งหมด -->
+<div class="summary-section">
+    <h2>สรุปยอดขาย</h2>
+    <div id="daily-summary"></div>
+    <div id="total-summary"></div>
+</div>
+
+<!-- ตารางประวัติการขาย -->
+<table id="sales-history" border="1" width="100%">
+    <thead>
+        <tr>
+            <th>เลขใบเสร็จ</th>
+            <th>ชื่อสินค้า</th>
+            <th>จำนวน</th>
+            <th>ราคา</th>
+            <th>เวลา</th>
+            <th>ยอดรวม</th>
+            <th>รับเงิน</th>
+            <th>เงินทอน</th>
+            <th>ดำเนินการ</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- ปุ่มลบทั้งหมด -->
+<button onclick="deleteAllSales()" style="margin-top:20px; background:#e74c3c; color:white; border:none; padding:10px 20px; border-radius:5px;">
+    🗑️ ลบข้อมูลทั้งหมด
+</button>
+
+<script src="script.js"></script>
+<script>
+    window.onload = function () {
+        loadFullSalesHistory(true);
+    };
+</script>
+
+</body>
+</html>
